@@ -37,6 +37,10 @@ You need to remove or comment out the `os_getBattLevel()` function at line 122
 in the file `src/lmic/lmic.c` of the MCCI LoRaWAN LMIC Library to avoid a linker
 error about `multiple definitions` of this function call.
 
+Please note that Serial1 (RX0/TX1 pins of the Feather M0 board) is used
+for serial message output. You will need to connect a USB-to-serial adapter
+during setup to view the log messages.
+
 ## Contributing
 
 Pull requests are welcome! For major changes, please open an issue first

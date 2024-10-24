@@ -37,7 +37,7 @@ void setup() {
     serial.begin(SERIAL_BAUD);
     while (!serial);
     serial.println();
-    log_msg("Feather M0 LoRaWAN Dust Sensor starting...");
+    log_msg("Feather M0 LoRaWAN Dust Sensor v%d starting...", FIRMWARE_VERSION);
 #endif
     vbat_read(true);
     sensors_init();

@@ -429,7 +429,13 @@ void onEvent (ev_t ev) {
                 blink_led(50, 2);
             }
             LMIC_clrTxData();
-            lmic_status = TXDONE;
+            // Only switch to status TXDONE if sensor data has actually
+            // been queued for transmission with lmic_send().
+            // This avoids going to sleep to early after an intermittent
+            // LoRaWAN transmissions which can be triggered by LoRaWAN MAC
+            // commands from the network server (eg. battery status requests)
+            if (lmic_status == TXPENDING)
+                lmic_status = TXDONE;
             break;
         case EV_RESET:
             log_msg("EV_RESET");

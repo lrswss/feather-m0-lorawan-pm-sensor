@@ -20,6 +20,7 @@
 
 #include "sds011.h"
 #include "utils.h"
+#include "pins.h"
 
 // stubs for relevant SDS011 serial commands
 static const uint8_t CMD_SLEEP[5] = { 0xAA, 0xB4, 0x06, 0x01, 0x00 };
@@ -43,7 +44,7 @@ static const uint8_t CMD_VERSION[5] = { 0xAA, 0xB4, 0x07, 0x00, 0x00 };
 // TX options: UART_TX_PAD_0, UART_TX_PAD_2
 
 // setup additioanl serial port on Pin 11 (Rx) and Pin 10 (Tx)
-Uart Serial2 (&sercom1, 11, 10, SERCOM_RX_PAD_0, UART_TX_PAD_2);
+Uart Serial2 (&sercom1, SDS011_TX_PIN, SDS011_RX_PIN, SERCOM_RX_PAD_0, UART_TX_PAD_2);
 
 
 void SERCOM1_Handler() {

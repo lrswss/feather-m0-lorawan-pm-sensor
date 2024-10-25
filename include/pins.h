@@ -24,3 +24,5 @@
 #define LORA_PIN_DIO0 3
 #define LORA_PIN_DIO1 6
 #define VBAT_PIN A7
+#define SDS011_RX_PIN 10
+#define SDS011_TX_PIN 11
